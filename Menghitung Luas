@@ -1,0 +1,62 @@
+import java.io.*;
+import java.util.*;
+
+class Persegi {
+    static void LPersegi (int s){
+        int luas = s*s;
+        System.out.print(luas);
+    }
+}
+
+class Segitiga {
+    static void LSegitiga (int a, int t){
+        int luas = a*t/2;
+        System.out.print(luas);
+    }
+}
+
+class Lingkaran{
+    static void LLingkaran (int r){
+        if (r == 7){
+            double rumus = 22/7 * (Math.pow (r, 2));
+            int luas = (int) rumus;
+            System.out.print((double)luas);
+        }else {
+            double rumus = 3.14 * (Math.pow (r, 2));
+            int luas = (int) rumus;
+            System.out.print((double) luas);
+        }
+    }
+}
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner (System.in);
+        Lingkaran luasLingkaran = new Lingkaran();
+        Persegi luasPersegi = new Persegi();
+        Segitiga luasSegitiga = new Segitiga();
+        int s, a, t, r;
+        int menu = sc.nextInt();
+
+        switch (menu) {
+            case 1:
+                s = sc.nextInt();
+                luasPersegi.LPersegi(s);
+                break;
+            case 2:
+                a = sc.nextInt();
+                t = sc.nextInt();
+                luasSegitiga.LSegitiga(t, a);
+                break;
+            case 3:
+                r = sc.nextInt();
+                luasLingkaran.LLingkaran(r);
+                break;
+            default:
+                System.out.print("Input yang anda masukan tidak sesuai");
+                break;
+        }
+    }
+}
