@@ -1,0 +1,28 @@
+import java.io.*;
+import java.util.*;
+
+public class angka{
+    public static void selde(int num){
+        int j;
+        int i = num;
+        int sum = 0;
+        int temp = i;
+        
+        while(i > 0){
+            j = i % 10;
+            sum = (sum*10) + j;
+            i = i/10;
+        }
+        
+        if(temp == sum)
+            System.out.println(temp + " adalah selde.");
+        else
+            System.out.println(temp + " bukan selde.");
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+        selde(num);
+    }
+}
