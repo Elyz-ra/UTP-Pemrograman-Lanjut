@@ -1,0 +1,33 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+        public static StringBuffer code(String message, int s){
+        StringBuffer sent = new StringBuffer();
+
+
+        for (int i = 0; i < message.length(); i++) {
+            if (Character.isUpperCase(message.charAt(i)))
+            {
+                int chara = (message.charAt(i) + s);
+                if(chara > 90) chara -= 26;
+                sent.append((char) chara);
+            }
+            else if(Character.isLowerCase(message.charAt(i)))
+            {
+                int chara = (message.charAt(i) + s);
+                if(chara > 122) chara -= 26;
+                sent.append((char) chara);
+            } else 
+                sent.append(message.charAt(i));
+        }
+        return sent;
+    }
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        String message = input.nextLine();
+        int num = input.nextInt() % 26;
+        System.out.println(code(message, num));
+    }
+}
