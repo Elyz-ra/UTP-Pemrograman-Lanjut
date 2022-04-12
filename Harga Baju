@@ -1,0 +1,116 @@
+Main Menu
+Pemrograman Lanjut Kelas TI E
+Praktikum: Senin 12.50-14.29 di G1.5
+[Praktikum - Tugas 3]
+Iqbal Biondy
+•
+Mar 9
+93/100
+93 points out of possible 100
+Due Mar 17, 11:59 PM
+Petunjuk Tugas Praktikum:
+Mengerjakan 1 soal studi kasus pada file terlampir
+Kumpulkan file java
+Kumpulkan class diagram (tipe file .jpg/.png)
+Screenshoot output dari IDE (tipe file .jpg/.png)
+Kumpulkan tepat pada waktunya 
+Dikumpulkan tepat pada waktunya, setiap keterlambatan akan mendapatkan pengurangan poin 10 perharinya
+
+Soal Tugas 3.pdf
+PDF
+Class comments
+Your work
+Graded
+
+tugas praktikum pemlan.png
+Image
+
+Screenshot (489).png
+Image
+
+Screenshot (487).png
+Image
+
+Screenshot (488).png
+Image
+
+Main.java
+Java
+1 private comment
+
+Iqbal BiondyApr 10
+Class diagaramnya tidak terdapat atribut
+
+package com.company;
+import java.io.*;
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        Baju obj = new Baju();
+        obj.listHarga();
+
+        System.out.println("Baju yang akan anda beli bertipe : ");
+        obj.jenis = sc.nextLine();
+
+        System.out.println("Jumlah baju yang akan anda beli adalah : ");
+        obj.jumlah = sc.nextInt();
+
+        obj.display();
+    }
+}
+class Baju {
+    String jenis;
+    int harga;
+    int jumlah;
+
+    final int hargaA = 100000;
+    final int hargaB = 125000;
+    final int hargaC = 175000;
+
+    void listHarga() {
+        System.out.println("Baju yang tersedia : ");
+        System.out.println("Baju A dengan harga Rp" + hargaA);
+        System.out.println("Baju B dengan harga Rp" + hargaB);
+        System.out.println("Baju C dengan harga Rp" + hargaC);
+    }
+
+    void promoA() {
+        if (jumlah > 100)
+            this.harga = 95000;
+        else
+            this.harga = hargaA;
+    }
+
+    void promoB() {
+        if (jumlah > 100)
+            this.harga = 120000;
+        else
+            this.harga = hargaB;
+    }
+
+    void promoC() {
+        if (jumlah > 100)
+            this.harga = 160000;
+        else
+            this.harga = hargaC;
+    }
+
+    void display() {
+        if (jenis.equalsIgnoreCase("a"))
+            promoA();
+        else if (jenis.equalsIgnoreCase("b"))
+            promoB();
+        else if (jenis.equalsIgnoreCase("c"))
+            promoC();
+
+        System.out.println("Jenis yang anda beli : " + jenis);
+        System.out.println("Harga per buah : " + harga);
+        System.out.println("Total harga : " + harga * jumlah);
+    }
+}
+Main.java
+Displaying Main.java.
