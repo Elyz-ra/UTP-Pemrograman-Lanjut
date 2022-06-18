@@ -1,38 +1,29 @@
 package com.company;
-import java.util.*;
 
 public class Main {
+
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+	 CarRider Diluc = new CarRider("Diluc",33,"08000000000");
+     CarRider Ning = new CarRider ("Ningguang",37,"081111111111");
+     CarRider Keqing = new CarRider ("Keqing",30,"081222222222");
+     CarRider Kazu = new CarRider ("Kazuha",22,"081233333333");
 
-        // input data merchant
-        DataMerchant.merc = DataMerchant.tambahMerchant(new Merchant("Bakso Pak Sahid", "Bakso", 8000));
-        DataMerchant.merc = DataMerchant.tambahMerchant(new Merchant("Nasgor Mblebes", "Nasi Goreng Jawa", 10000));
-        DataMerchant.merc = DataMerchant.tambahMerchant(new Merchant("Ayam Geprek Kak Rose", "Ayam Kota Ekstra Nasi", 8000));
+     CarData data = new CarData ();
+     data.addCar ("SUV", "N 1111 AB", "Honda");
+     data.addCar ("SPORT", "N 2222 AB", "SSC Tuatara");
+     data.addCar ("TRUCK", "N 3333 AB", "Suzuki");
+     data.addCar ("SPORT", "N 4444 AB", "Honda");
 
-        System.out.println("Nama    :Elyzia Janara K");
-        System.out.println("Nim     :215150707111024");
-        DataMerchant.tampilData();
-        System.out.println();
+     data.listOfCar ();
 
-        System.out.println("===Masukkan Data Merchant===");
-        System.out.print("Input Nama Merchant   : ");
-        String namaMerchant = input.nextLine();
-        System.out.print("Input Nama Produk     : ");
-        String namaProduk = input.nextLine();
-        System.out.print("Input Harga Produk    : ");
-        double hargaMakanan = input.nextDouble();
-        input.nextLine();
-        DataMerchant.merc = DataMerchant.tambahMerchant(new Merchant(namaMerchant, namaProduk, hargaMakanan));
-        System.out.println();
-        DataMerchant.tampilData();
-        System.out.println();
+     RentArchive arsip = new RentArchive();
+     arsip.Rent(Diluc, data.carList.get(2), 6);
+     arsip.Rent(Ning, data.carList.get(0), 3);
+     arsip.Rent(Keqing, data.carList.get(1), 1);
+     arsip.Rent(Kazu, data.carList.get(1), 2);
 
-        DataMerchant.updateMerchant(DataMerchant.cariMerchant("Ayam Geprek Kak Rose"), "Ayam Geprek Kak Rose", "Mie Zelenial", 12000);
-        System.out.println("===Tampilan Data Merchant yang sudah di update===");
-        DataMerchant.tampilMerchant(DataMerchant.cariMerchant("Ayam Geprek Kak Rose"));
-        System.out.println();
-        System.out.println("Nama    :Elyzia Janara K");
-        System.out.println("Nim     :215150707111024");
+     System.out.println(" ");
+     arsip.info();
+
     }
 }
